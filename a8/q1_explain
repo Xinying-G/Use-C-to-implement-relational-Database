@@ -1,0 +1,12 @@
+
+1. Explain why these very similar queries get different plans.
+The query optimization did analysis for how to find the query with the minimal time. The strategy used for processing
+queries depend on selectivity and the output of the query. Since I indexed those 3 element, I can choose to use index, Bitmap Index,
+or no index. The cost vary on plans and plans.  
+
+2. Given what you know about the selectivity of the columns, why does each plan make sense?
+For the first one, it find 2 rows, which is not 10% of selectivity, so it uses index. 
+For the second one, it find 1% of rows, which is not 10% selectivity, so it can use index or bitmap index.
+But there are still a lot of rows, so it use bitmap index scan to avoid rereads of the same page and trade random
+access for sequential access.
+For the third one, The selectivity is over 10%, so it uses sequential scan. 

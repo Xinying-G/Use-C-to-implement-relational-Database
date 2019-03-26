@@ -1,0 +1,78 @@
+1) In auto-commit mode (no transaction boundaries), there are bad
+balances and bad audits, but nothing else goes wrong. Explain this by
+demonstrating the interleaving of the steps of two processes that can
+produce a) a bad balance, and b) a bad audit.
+
+a) If several process want to withdraw money concurrently, this will happen even if the withdraw amount is limited. This is because multiple process read the positive balance at the same time and get money concurrently, when they write money back, writing might happen in different time. Like an account have 10$ in balance and process A read 10 and withdraw 8$, B read 10 and withdraw 8$, A write money back of 2, B write back of -6. 
+T1         	T2
+read 10     
+			read 10
+withdraw 8
+			withdraw 8
+write 2
+			write -6
+
+b) while some process are withdrawing money, some process are doing audition
+T1        	T2
+read 10     
+			read 10
+withdraw 2
+			withdraw 2
+write 8
+Audition:8			
+			write 6 
+
+
+2) With READ COMMITTED isolation, there are bad balances, but nothing
+else goes wrong. Explain this, again by showing an interleaving of the
+steps of two processes.
+
+Read commited can change the balance when processes are in transaction. 
+If we withdraw 8$ from account A and transfer 8$ from account A to account B. Then 
+The total operation withdrawed 8$ from audition. Since audition is from another transaction,
+The right audition will be culculated.
+
+T1        	T2			 T3
+begin 		begin 		 begin	 
+read A 10     
+			read A 10 	 read B 0
+balance A -8				
+			balance A -8  
+write 2					 balance B +8
+			write A -6	 
+						 write 	B  8
+committed    committed   committed
+
+begin 		begin		 begin						 
+Audit: 2    Audit: 2     Audit: 2
+committed   committed    committed						 
+			 
+
+3) With SERIALIZABLE isolation, the only problem is failed
+transfers. (You could conceivably see a failed commit too.) Explain a
+failed transfer by showing an interleaving of the steps of two
+processes that produces this result.
+
+T1        	T2			 T3
+begin
+read A 10     
+			failed 	 failed
+balance -8				
+			  
+write 2					
+committed
+
+begin				
+Audit: 2    	     	
+committed	 	 
+			begin
+			Audit: 2 
+			committed 
+						begin
+						Audit: 2
+						committed
+
+
+
+
+

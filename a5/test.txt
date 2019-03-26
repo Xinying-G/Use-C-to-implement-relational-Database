@@ -1,0 +1,177 @@
+DROP TABLE
+DROP TABLE
+DROP TABLE
+CREATE TABLE
+INSERT 0 20
+CREATE TABLE
+INSERT 0 250
+CREATE TABLE
+INSERT 0 736
+     name     
+--------------
+ Hindforemost
+ Ijreilly
+ Squeezewas
+(3 rows)
+
+ birth_date 
+------------
+ 1989-10-01
+(1 row)
+
+ message_date 
+--------------
+ 2017-11-13
+ 2017-02-23
+ 2017-02-22
+ 2016-08-05
+ 2016-02-14
+ 2015-11-15
+ 2015-11-04
+ 2015-06-25
+ 2015-04-30
+ 2015-04-16
+ 2015-01-05
+(11 rows)
+
+     name     
+--------------
+ Cynosure
+ Salpiglossis
+ Unguiferous
+(3 rows)
+
+ message_date 
+--------------
+ 2015-01-21
+ 2016-07-09
+(2 rows)
+
+    name     
+-------------
+ Abderian
+ Oscitate
+ Squeezewas
+ Unguiferous
+(4 rows)
+
+     name     
+--------------
+ Abderian
+ Bamboozled
+ Botuliform
+ Cephalophore
+ Cynosure
+ Flyaway
+ Froglet
+ Intaglio
+ Lucarne
+ Moneyocracy
+ Oscitate
+ Salpiglossis
+ Tweetii
+ Unguiferous
+ Zyrianyhippy
+(15 rows)
+
+ sender_name | reciever_name 
+-------------+---------------
+ Abderian    | Abderian
+ Abderian    | Cephalophore
+ Abderian    | Cynosure
+ Abderian    | Froglet
+ Abderian    | Oscitate
+ Oscitate    | Bamboozled
+ Oscitate    | Flyaway
+ Oscitate    | Hindforemost
+ Oscitate    | Salpiglossis
+ Squeezewas  | Anchusa
+ Squeezewas  | Bamboozled
+ Squeezewas  | Botuliform
+ Squeezewas  | Moneyocracy
+ Squeezewas  | Normalcy
+ Unguiferous | Flyaway
+ Unguiferous | Moneyocracy
+ Unguiferous | Tweetii
+ Unguiferous | Unguiferous
+(18 rows)
+
+     name     | count 
+--------------+-------
+ Flyaway      |     6
+ Tweetii      |     5
+ Cephalophore |     4
+ Oscitate     |     4
+ Botuliform   |     3
+ Unguiferous  |     2
+ Anchusa      |     2
+ Bamboozled   |     2
+ Abderian     |     2
+ Hindforemost |     2
+ Salpiglossis |     1
+ Intaglio     |     1
+ Squeezewas   |     1
+ Zyrianyhippy |     1
+ Froglet      |     1
+ Cynosure     |     1
+ Moneyocracy  |     1
+ Normalcy     |     0
+ Ijreilly     |     0
+(19 rows)
+
+    name     | count 
+-------------+-------
+ Unguiferous |    21
+(1 row)
+
+    min     |    max     
+------------+------------
+ 1950-12-25 | 2010-10-16
+(1 row)
+
+ count 
+-------
+    46
+(1 row)
+
+     name     | oldest_message | newest_message 
+--------------+----------------+----------------
+ Abderian     | 2015-03-05     | 2017-11-07
+ Anchusa      | 2015-04-01     | 2017-10-24
+ Bamboozled   | 2015-01-22     | 2017-11-12
+ Botuliform   | 2015-02-11     | 2017-11-04
+ Cephalophore | 2015-06-19     | 2017-12-02
+ Cynosure     | 2015-07-09     | 2017-12-23
+ Flyaway      | 2015-02-17     | 2017-06-21
+ Froglet      | 2016-11-07     | 2017-09-18
+ Hindforemost | 2015-02-06     | 2017-11-12
+ Ijreilly     |                | 
+ Intaglio     | 2015-03-26     | 2017-12-14
+ Lucarne      | 2015-05-13     | 2017-12-12
+ Moneyocracy  | 2015-03-18     | 2017-10-11
+ Normalcy     | 2015-03-19     | 2017-12-30
+ Oscitate     | 2015-01-17     | 2017-11-07
+ Salpiglossis | 2015-11-26     | 2017-11-05
+ Squeezewas   | 2015-04-15     | 2017-12-30
+ Tweetii      | 2015-04-03     | 2017-12-31
+ Unguiferous  | 2015-01-05     | 2016-10-20
+ Zyrianyhippy | 2015-01-05     | 2017-11-13
+(20 rows)
+
+ message_date 
+--------------
+ 2016-05-17
+ 2016-05-18
+(2 rows)
+
+   name   
+----------
+ Flyaway
+ Normalcy
+(2 rows)
+
+   name   
+----------
+ Ijreilly
+(1 row)
+

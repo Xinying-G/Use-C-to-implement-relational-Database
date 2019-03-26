@@ -1,0 +1,11 @@
+CREATE INDEX
+ANALYZE
+                                        QUERY PLAN                                        
+------------------------------------------------------------------------------------------
+ Bitmap Heap Scan on r  (cost=190.27..12383.21 rows=6145 width=39)
+   Recheck Cond: ((r_10p = 0) AND (r_50p = 0) AND (r_1p >= 0) AND (r_1p <= 5))
+   ->  Bitmap Index Scan on r_r_10p_r_50p_r_1p_idx  (cost=0.00..188.73 rows=6145 width=0)
+         Index Cond: ((r_10p = 0) AND (r_50p = 0) AND (r_1p >= 0) AND (r_1p <= 5))
+(4 rows)
+
+DROP INDEX

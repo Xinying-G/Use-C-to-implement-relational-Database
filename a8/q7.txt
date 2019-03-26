@@ -1,0 +1,24 @@
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+ANALYZE
+ANALYZE
+ANALYZE
+                                   QUERY PLAN                                    
+---------------------------------------------------------------------------------
+ Nested Loop  (cost=0.00..109.50 rows=1 width=81)
+   ->  Nested Loop  (cost=0.00..65.29 rows=1 width=46)
+         ->  Index Scan using t_t_5_idx on t  (cost=0.00..23.76 rows=5 width=19)
+               Index Cond: (t_5 = 0)
+         ->  Index Scan using s_t_id_idx on s  (cost=0.00..8.29 rows=1 width=31)
+               Index Cond: (t_id = t.t_id)
+               Filter: (s_20 = 0)
+   ->  Index Scan using r_s_id_idx on r  (cost=0.00..44.11 rows=10 width=39)
+         Index Cond: (s_id = s.s_id)
+(9 rows)
+
+DROP INDEX
+DROP INDEX
+DROP INDEX
+DROP INDEX

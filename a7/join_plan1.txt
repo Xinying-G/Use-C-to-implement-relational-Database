@@ -1,0 +1,65 @@
+  // Row* joined;
+
+  Row* left = _left_row;
+  Row* right = new Row();  // left = _left->next();
+  Row* tmp = right;
+
+  // cout << right << endl;
+
+  // left = _left_row;
+
+  while(left != NULL && right != NULL)
+  {
+    
+    right = _right->next();
+    // right_count++;
+
+    if(right != NULL){
+      bool match = false;
+        
+        if(left->at(_left_join_columns.selected(0))  == 
+        right->at(_right_join_columns.selected(0)))
+        {
+          match = true;
+        }
+      // for(unsigned i =0; i < _left_join_columns.n_selected(); i++)
+      // {
+      //   if(left->at(_left_join_columns.selected(i))  != 
+      //   right->at(_right_join_columns.selected(i)))
+      //   {
+      //     match = false;
+      //   }
+      // }
+    if(match){
+      // left_mark.emplace(left_count);
+      // right_mark.emplace(right_count);
+      break;
+    }
+    else
+    {
+      // Row::reclaim(left);
+      // Row::reclaim(right);
+    }
+    }
+
+    
+    if(right == NULL)
+    {
+      left = _left->next();
+      // left_count++;
+      if(left != NULL)
+      {
+        _right->close();
+        _right->open();
+        right = _right->next();
+        // right_count++;
+      }
+    }
+  }
+
+  // Row::reclaim(left);
+  // Row::reclaim(right);
+  _left_row = left;
+  delete tmp;
+  return right != NULL && left != NULL ? join_rows_if_match(left, right): NULL;
+}
